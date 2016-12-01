@@ -1,0 +1,5 @@
+CREATE TABLE `cards` (
+	`id`	INTEGER PRIMARY KEY AUTOINCREMENT,
+	`cardData`	TEXT NOT NULL UNIQUE,
+	`expiryDate`	TEXT NOT NULL
+);
