@@ -39,10 +39,10 @@ $app->get('/hello/{cardNumber}', function (Request $request, Response $response)
     $expiryDate = DateTime::createFromFormat('c', $data);
 
     if($expiryDate > new DateTime('now', new DateTimeZone('Europe/London'))) {
-        return $response->withJson(false);
+        return $response->withJson(true);
     }
 
-    return $response->withJson(true);
+    return $response->withJson(false);
 });
 
 $app->get('/random', function (Request $request, Response $response) {
@@ -59,7 +59,7 @@ $app->get('/random/qr.png', function (Request $request, Response $response) use(
 
     $qrCode = new QrCode();
     $qrCode
-        ->setText($cardNumber)
+        ->setText(sprintf('{%s}', $cardNumber))
         ->setSize(300)
         ->setPadding(10)
         ->setErrorCorrection('high')
