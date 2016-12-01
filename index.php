@@ -52,7 +52,7 @@ $app->get('/random', function (Request $request, Response $response) {
 
 $app->get('/random/qr.png', function (Request $request, Response $response) use($pdo) {
 
-    $data = $pdo->query('SELECT * FROM cards ORDER BY RANDOM() LIMIT 1')->fetchAll(PDO::FETCH_ASSOC);
+    $data = $pdo->query('SELECT * FROM cards ORDER BY RANDOM() LIMIT 1')->fetch(PDO::FETCH_ASSOC);
 
     $cardNumber = $data['cardData'];
     $expiryDate = $data['expiryDate'];
