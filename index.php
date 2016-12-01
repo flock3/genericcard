@@ -7,6 +7,7 @@ require 'vendor/autoload.php';
 
 $config = require(__DIR__ . '/config.php');
 
+$dsn = sprintf('sqlite:%s', $config['db.path']);
 
 $app = new \Slim\App;
 
@@ -14,7 +15,7 @@ try {
     $pdo = new PDO($dsn, null, null, [PDO::ERRMODE_EXCEPTION => true]);
 } catch(PDOException $error)
 {
-    $app->errorHandler($error);
+    $app->errorHandler(null, null, $error);
     return;
 }
 

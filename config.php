@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'db.file' => __DIR__ . '/data/generic.db',
+    'db.path' => __DIR__ . '/data/generic.db',
 ];
