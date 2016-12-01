@@ -24,7 +24,7 @@ try {
 $app->get('/hello/{cardNumber}', function (Request $request, Response $response) use($pdo) {
     $cardNumber = $request->getAttribute('cardNumber');
 
-    $prepared = $pdo->prepare('SELECT expiryDate from cards WHERE cardNumber = :cardNumber LIMIT 1');
+    $prepared = $pdo->prepare('SELECT expiryDate from cards WHERE cardData = :cardNumber');
 
     $prepared->bindParam('cardNumber', $cardNumber);
 
