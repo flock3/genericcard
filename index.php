@@ -70,9 +70,9 @@ $app->get('/random/qr.png', function (Request $request, Response $response) use(
         ->setImageType(QrCode::IMAGE_TYPE_PNG)
     ;
 
+    $response = $response->withHeader('Content-Type', $qrCode->getContentType());
 
     $response->getBody()->write($qrCode->get());
-    $response->withHeader('Content-Type', $qrCode->getContentType());
 
     return $response;
 });
