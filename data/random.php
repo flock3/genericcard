@@ -1,4 +1,3 @@
-
 <html>
 <head>
     <title>Random Customer QR code...</title>

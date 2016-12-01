@@ -44,10 +44,9 @@ $app->get('/hello/{cardNumber}', function (Request $request, Response $response)
 
     return $response->withJson(true);
 });
-$app->run();
 
 $app->get('/random', function (Request $request, Response $response) {
-    return $response->getBody()->write(include(__DIR__ .'/data/random.php'));
+    return $response->getBody()->write(require(__DIR__ .'/data/random.php'));
 });
 
 
